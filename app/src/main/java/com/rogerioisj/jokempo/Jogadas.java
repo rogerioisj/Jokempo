@@ -43,22 +43,21 @@ public class Jogadas {
                 break;
         }
     }
-    public void capturaJogadaHumano(String jogada){
+
+    public void capturaJogadaHumano(String jogada) {
         opcaoJogador = jogada;
     }
 
-    public String validaRodada(){
-        if(opcaoApp == "Pedra" && opcaoJogador == "Tesoura" || opcaoApp == "Papel" && opcaoJogador == "Pedra" || opcaoApp == "Tesoura" && opcaoJogador == "Papel"){
+    public String validaRodada() {
+        if (opcaoApp == "Pedra" && opcaoJogador == "Tesoura" || opcaoApp == "Papel" && opcaoJogador == "Pedra" || opcaoApp == "Tesoura" && opcaoJogador == "Papel") {
             System.out.println("Humano: " + opcaoJogador + ", App: " + opcaoApp);
             vitoriasApp++;
             return "App ganhou!";
-        }
-        else if(opcaoJogador == "Pedra" && opcaoApp == "Tesoura" || opcaoJogador == "Papel" && opcaoApp == "Pedra" || opcaoJogador == "Tesoura" && opcaoApp == "Papel" ){
+        } else if (opcaoJogador == "Pedra" && opcaoApp == "Tesoura" || opcaoJogador == "Papel" && opcaoApp == "Pedra" || opcaoJogador == "Tesoura" && opcaoApp == "Papel") {
             System.out.println("Humano: " + opcaoJogador + ", App: " + opcaoApp);
             vitoriasJogador++;
             return "Voce ganhou!";
-        }
-        else /*if(opcaoJogador == "Pedra" && opcaoApp == "Pedra" || opcaoJogador == "Papel" && opcaoApp == "Papel" || opcaoJogador == "Tesoura" && opcaoApp == "Tesoura")*/{
+        } else /*if(opcaoJogador == "Pedra" && opcaoApp == "Pedra" || opcaoJogador == "Papel" && opcaoApp == "Papel" || opcaoJogador == "Tesoura" && opcaoApp == "Tesoura")*/ {
             System.out.println("Humano: " + opcaoJogador + ", App: " + opcaoApp);
             return "Empate!";
         }
