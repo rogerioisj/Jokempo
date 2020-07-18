@@ -11,13 +11,12 @@ public class Jogadas {
             "Papel",
             "Tesoura"
     };
-    private String opcaoApp = "default";
-    private String opcaoJogador = "default";
+    private String opcaoApp;
+    private String opcaoJogador;
 
     public String definirJogadaApp() {
         int jogada = new Random().nextInt(3); //Retorna a posição do array
-        opcaoApp = opcoes[jogada];
-        return opcoes[jogada];
+        return opcaoApp = opcoes[jogada];
     }
 
     public void alteraImagemRespostaSelecaoApp(ImageView imageView) {
@@ -31,10 +30,6 @@ public class Jogadas {
             case "Tesoura":
                 imageView.setImageResource(R.drawable.tesoura);
                 break;
-            default:
-                imageView.setImageResource(R.drawable.padrao);
-                break;
-
         }
     }
 }
