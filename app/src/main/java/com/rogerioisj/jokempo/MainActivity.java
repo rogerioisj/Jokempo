@@ -4,8 +4,11 @@ package com.rogerioisj.jokempo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,24 +20,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void configuraOpcaoSelecionada(String opcaoSelecionada) {
+    public void configuraRodada() {
         ImageView imagemJogadaApp = findViewById(R.id.imagem_jogada_app);
-        System.out.println("A opcao " + opcaoSelecionada + " foi selecionada!");
+        TextView informativoRodada = findViewById(R.id.informativo_rodada);
+        TextView contador = findViewById(R.id.contador);
+        jogada.appJoga();
+        informativoRodada.setText(jogada.validaRodada());
         jogada.alteraImagemRespostaSelecaoApp(imagemJogadaApp);
+        contador.setText("Voce: " + jogada.getVitoriasJogador() + " x " + jogada.getVitoriasApp() + ": App");
     }
 
     public void identificaJogadaPedraJogador(View view) {
-        this.configuraOpcaoSelecionada("Pedra");
-        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
+        jogada.capturaJogadaHumano("Pedra");
+        this.configuraRodada();
     }
 
     public void identificaJogadaPapelJogador(View view) {
-        this.configuraOpcaoSelecionada("Papel");
-        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
+        jogada.capturaJogadaHumano("Papel");
+        this.configuraRodada();
     }
 
     public void identificaJogadaTesouraJogador(View view) {
-        this.configuraOpcaoSelecionada("Tesoura");
-        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
+        jogada.capturaJogadaHumano("Tesoura");
+        this.configuraRodada();
     }
 }
