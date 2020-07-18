@@ -11,7 +11,7 @@ public class Jogadas {
             "Papel",
             "Tesoura"
     };
-    private String opcaoApp;
+    private String opcaoApp = "";
     private String opcaoJogador;
 
     public String definirJogadaApp() {
