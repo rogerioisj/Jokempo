@@ -1,16 +1,15 @@
 package com.rogerioisj.jokempo;
 
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.rogerioisj.jokempo.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    public Jogadas jogada = new Jogadas();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,22 +17,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void identificaJogadaPedra(View view) {
-        configuraOpcaoSelecionada("Pedra");
+    public void configuraOpcaoSelecionada(String opcaoSelecionada) {
+        ImageView imagemJogadaApp = findViewById(R.id.imagem_jogada_app);
+        System.out.println("A opcao " + opcaoSelecionada + " foi selecionada!");
+        jogada.alteraImagemRespostaSelecaoApp(imagemJogadaApp);
     }
 
-    public void identificaJogadaPapel(View view) {
-        configuraOpcaoSelecionada("Papel");
-
+    public void identificaJogadaPedraJogador(View view) {
+        this.configuraOpcaoSelecionada("Pedra");
+        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
     }
 
-    public void identificaJogadaTesoura(View view) {
-        configuraOpcaoSelecionada("Tesoura");
-
+    public void identificaJogadaPapelJogador(View view) {
+        this.configuraOpcaoSelecionada("Papel");
+        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
     }
 
-    public void configuraOpcaoSelecionada(String opcao){
-        System.out.println("A opcao "+opcao+" foi selecionada!");
-
+    public void identificaJogadaTesouraJogador(View view) {
+        this.configuraOpcaoSelecionada("Tesoura");
+        this.configuraOpcaoSelecionada(jogada.definirJogadaApp());
     }
 }
